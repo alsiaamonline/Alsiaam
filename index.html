@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Siaam | Dates, Nuts & Chocolates</title>
+  <style>
+    :root {
+      --bg-pastel: #f8f5f0;
+      --card-bg: #ffffff;
+      --card-border: #ede6dc;
+      --text-main: #3d342f;
+      --text-muted: #82756a;
+      --brand-accent: #a07855;
+      --banner-bg: #efe8dc;
+      --quote-bg: #f3ece1;
+      --tag-bg: #f2ebd9;
+      --tag-text: #6e5835;
+      --whatsapp-green: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-pastel);
+      color: var(--text-main);
+      padding-bottom: 95px;
+    }
+
+    header {
+      background-color: #fcfaf7;
+      text-align: center;
+      padding: 1.8rem 1rem 1.2rem;
+      border-bottom: 1px solid #eae2d6;
+    }
+
+    .brand-logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 12px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #f2ebe1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: var(--brand-accent);
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    .sub-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-top: 3px;
+    }
+
+    .quote-banner {
+      background-color: var(--quote-bg);
+      text-align: center;
+      padding: 14px 16px;
+      font-style: italic;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #5a4d42;
+      border-bottom: 1px solid #e3d8c8;
+      line-height: 1.4;
+    }
+
+    .notice-banner {
+      background-color: var(--banner-bg);
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #5c4e43;
+      border-bottom: 1px solid #e2d7c7;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
+      padding: 16px 14px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 130px;
+      overflow: hidden;
+      background: #f7f2eb;
+      border-bottom: 1px solid #e8dfd3;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .card-status {
+      font-size: 0.68rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 3px 7px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .card-price {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--brand-accent);
+      margin-bottom: 10px;
+    }
+
+    .item-buy-btn {
+      display: block;
+      background-color: var(--brand-accent);
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .item-buy-btn:hover {
+      background-color: #886242;
+    }
+
+    .order-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(252, 250, 247, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 12px;
+      border-top: 1px solid #eae2d6;
+      text-align: center;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+      z-index: 100;
+    }
+
+    .whatsapp-btn {
+      background: var(--whatsapp-green);
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(37, 211, 102, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-logo">
+      <img src="IMG_20260806_145648~2.jpg" alt="Al Siaam Logo">
+    </div>
+    <h1>AL SIAAM</h1>
+    <div class="sub-title">DATES, NUTS & CHOCOLATES</div>
+  </header>
+
+  <div class="quote-banner">
+    "Healthy foods make you feel good"
+  </div>
+
+  <div class="notice-banner">
+    ✨ Premium Quality • Retail & Wholesale Available
+  </div>
+
+  <div class="product-grid">
+
+    <!-- Premium Dates -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151309.png" alt="Premium Dates">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Premium Dates</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Starts at ₹300/-</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Premium%20Dates." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Chocolates -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151104.png" alt="Chocolates">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Chocolates</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Chocolates." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Mixed Nuts -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151245.png" alt="Mixed Nuts">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Premium Mixed Nuts</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Mixed%20Nuts." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Golden Raisins -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151047.png" alt="Raisins">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Golden Raisins</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Golden%20Raisins." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Black Raisins -->
+    <div class="card">
+      <div class="card-img">
+        <img src="1000206456.jpg" alt="Black Raisins">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Black Raisins</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Black%20Raisins." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Dried Figs -->
+    <div class="card">
+      <div class="card-img">
+        <img src="1000206461.png" alt="Dried Figs">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Dried Figs</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Dried%20Figs." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Cashew W320 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151357.png" alt="Cashew W320">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Cashew W320</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Cashew%20W320." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Cashew W240 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151357.png" alt="Cashew W240">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Cashew W240</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Cashew%20W240." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Roasted Cashew W320 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="Screenshot_20260806_160530.jpg" alt="Roasted Cashew W320">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Roasted Cashew W320</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Roasted%20Cashew%20W320." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Roasted Cashew W240 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="Screenshot_20260806_160530.jpg" alt="Roasted Cashew W240">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Roasted Cashew W240</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Roasted%20Cashew%20W240." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Badam (Almonds) -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151023.png" alt="Badam (Almonds)">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Badam (Almonds)</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Badam." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Walnut -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151219.png" alt="Walnut">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Walnut</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Walnuts." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+    <!-- Pista -->
+    <div class="card">
+      <div class="card-img">
+        <img src="IMG_20260806_151147.png" alt="Pista">
+      </div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Pista</div>
+          <div class="card-status">Wholesale & Retail</div>
+          <div class="card-price">Contact for Best Price</div>
+        </div>
+        <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20want%20to%20order%20Pista." class="item-buy-btn">Order Now</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="order-bar">
+    <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20would%20like%20to%20place%20an%20order." class="whatsapp-btn">
+      💬 General Inquiry via WhatsApp
+    </a>
+  </div>
+
+</body>
+  </html>
+  
