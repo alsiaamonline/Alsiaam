@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Siaam | Dates & Nuts</title>
+  <style>
+    :root {
+      --bg: #f9f6f0;
+      --card-bg: #ffffff;
+      --accent: #8c6d46;
+      --text: #2c2523;
+      --pastel-btn: #efe8dc;
+      --green: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding-bottom: 90px;
+    }
+
+    header {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid #e2dad0;
+    }
+
+    .brand-logo {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    .sub-title {
+      font-size: 0.85rem;
+      color: #786c63;
+      margin-bottom: 6px;
+    }
+
+    .contact-info {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+
+    .notice-banner {
+      background-color: #eae3d2;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #52463c;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      padding: 12px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #ebd9c8;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 140px;
+      background: #f3efe8;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .card-status {
+      font-size: 0.72rem;
+      background: #f0f7f2;
+      color: #2b7a41;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .card-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .price-sub {
+      font-size: 0.7rem;
+      color: #8c827a;
+    }
+
+    .order-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      padding: 12px;
+      border-top: 1px solid #e0d9cc;
+      text-align: center;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.08);
+      z-index: 100;
+    }
+
+    .whatsapp-btn {
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-logo">
+      <img src="logo.jpg" alt="Al Siaam Logo" onerror="this.src='https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=300&q=80'">
+    </div>
+    <h1>AL SIAAM</h1>
+    <div class="sub-title">DATES & NUTS</div>
+    <div class="contact-info">📞 9747153313</div>
+  </header>
+
+  <div class="notice-banner">
+    ✨ Premium Quality • Retail & Wholesale Available (Up to 10kg)
+  </div>
+
+  <div class="product-grid">
+
+    <!-- Cashew W320 -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=400&q=80" alt="Cashew W320"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Cashew W320</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="card-price">₹1200/- <span class="price-sub">/kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cashew W240 -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&w=400&q=80" alt="Cashew W240"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Cashew W240</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="card-price">₹1300/- <span class="price-sub">/kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roasted Cashew W320 -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=400&q=80" alt="Roasted Cashew W320"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Roasted Cashew W320</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="card-price">₹1300/- <span class="price-sub">/kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roasted Cashew W240 -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=400&q=80" alt="Roasted Cashew W240"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Roasted Cashew W240</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="card-price">₹1400/- <span class="price-sub">/kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badam -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&w=400&q=80" alt="Badam"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Badam (Almonds)</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="card-price">₹1100/- <span class="price-sub">/kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pista -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1621955964441-c173e01c135b?auto=format&fit=crop&w=400&q=80" alt="Pista"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Pista</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="card-price">₹1800/- <span class="price-sub">/kg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dates -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1596560548464-f010549b84d7?auto=format&fit=crop&w=400&q=80" alt="Premium Dates"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Premium Dates</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="card-price">Starts ₹300/-</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dried Apricots -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1595412110214-386f7b137882?auto=format&fit=crop&w=400&q=80" alt="Dried Apricots"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Dried Apricots</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="price-sub">Contact for Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Berries -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1589217157232-4a29e3a388a1?auto=format&fit=crop&w=400&q=80" alt="Assorted Berries"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Assorted Berries</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="price-sub">Contact for Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Raisins -->
+    <div class="card">
+      <div class="card-img"><img src="https://images.unsplash.com/photo-1588613254378-b1180b06b64b?auto=format&fit=crop&w=400&q=80" alt="Raisins"></div>
+      <div class="card-content">
+        <div>
+          <div class="card-title">Raisins</div>
+          <div class="card-status">Wholesale & Retail</div>
+        </div>
+        <div>
+          <div class="price-sub">Contact for Rate</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="order-bar">
+    <a href="https://wa.me/919747153313?text=Hello%20Al%20Siaam,%20I%20would%20like%20to%20place%20an%20order." class="whatsapp-btn">
+      💬 Order via WhatsApp (9747153313)
+    </a>
+  </div>
+
+</body>
+</html>
