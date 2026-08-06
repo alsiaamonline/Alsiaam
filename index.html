@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alsiaam | Premium Dry Fruits, Nuts, Dates & Chocolates</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --bg-color: #fcf9f2;
+      --card-bg: #ffffff;
+      --accent-gold: #c59b27;
+      --text-dark: #2c221e;
+      --brand-brown: #4a3427;
+      --whatsapp-green: #25d366;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      padding-bottom: 80px;
+    }
+
+    header {
+      background-color: var(--brand-brown);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+    }
+
+    .order-type-selector {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .type-btn {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--brand-brown);
+      background: transparent;
+      color: var(--brand-brown);
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .type-btn.active {
+      background: var(--brand-brown);
+      color: white;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--brand-brown);
+      margin-bottom: 0.3rem;
+    }
+
+    .product-price {
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 0.3rem;
+    }
+
+    .qty-btn {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: var(--brand-brown);
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .qty-count {
+      font-weight: bold;
+    }
+
+    .cart-summary {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .order-btn {
+      background: var(--whatsapp-green);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Alsiaam</h1>
+    <p>Wholesale & Retail Dry Fruits, Premium Nuts, Dates & Chocolates</p>
+  </header>
+
+  <div class="container">
+    <div class="order-type-selector">
+      <button class="type-btn active" onclick="setOrderType('retail', this)">Retail Order</button>
+      <button class="type-btn" onclick="setOrderType('wholesale', this)">Wholesale Order</button>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+
+  <div class="cart-summary">
+    <div>
+      <span style="font-size: 0.9rem; color: #666;">Selected Items:</span>
+      <div id="totalItems" style="font-size: 1.2rem; font-weight: bold;">0 Items</div>
+    </div>
+    <button class="order-btn" onclick="sendOrder()">
+      Send Order to Owner
+    </button>
+  </div>
+
+  <script>
+    // Replace with the business owner's WhatsApp phone number (with country code, no + or spaces)
+    const OWNER_PHONE = "919747153313";
+
+    const products = [
+      { id: 1, name: "Premium Almonds (Badam)", img: "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=500", retailPrice: "₹850 / kg", wholesalePrice: "₹720 / kg (Min 10kg)" },
+      { id: 2, name: "Cashews (Kaju)", img: "https://images.unsplash.com/photo-1543208541-005dd2419920?w=500", retailPrice: "₹950 / kg", wholesalePrice: "₹820 / kg (Min 10kg)" },
+      { id: 3, name: "Ajwa Dates", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500", retailPrice: "₹1200 / kg", wholesalePrice: "₹980 / kg (Min 5kg)" },
+      { id: 4, name: "Medjool Dates", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500", retailPrice: "₹1400 / kg", wholesalePrice: "₹1150 / kg (Min 5kg)" },
+      { id: 5, name: "Walnut Kernels (Akhrot)", img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500", retailPrice: "₹1100 / kg", wholesalePrice: "₹900 / kg (Min 10kg)" },
+      { id: 6, name: "Pistachios (Pista)", img: "https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?w=500", retailPrice: "₹1300 / kg", wholesalePrice: "₹1080 / kg (Min 10kg)" },
+      { id: 7, name: "Assorted Chocolates", img: "https://images.unsplash.com/photo-1511381939415-e44015466834?w=500", retailPrice: "₹750 / kg", wholesalePrice: "₹600 / kg (Min 5kg)" },
+      { id: 8, name: "Premium Raisins (Kishmish)", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500", retailPrice: "₹450 / kg", wholesalePrice: "₹360 / kg (Min 10kg)" }
+    ];
+
+    let currentOrderType = 'retail';
+    let cart = {};
+
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      products.forEach(p => {
+        const qty = cart[p.id] || 0;
+        const price = currentOrderType === 'retail' ? p.retailPrice : p.wholesalePrice;
+
+        grid.innerHTML += `
+          <div class="product-card">
+            <img src="${p.img}" alt="${p.name}">
+            <div class="product-info">
+              <div class="product-title">${p.name}</div>
+              <div class="product-price">${price}</div>
+              <div class="quantity-controls">
+                <button class="qty-btn" onclick="updateQty(${p.id}, -1)">-</button>
+                <span class="qty-count">${qty}</span>
+                <button class="qty-btn" onclick="updateQty(${p.id}, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      updateCartSummary();
+    }
+
+    function setOrderType(type, element) {
+      currentOrderType = type;
+      document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+      renderProducts();
+    }
+
+    function updateQty(productId, change) {
+      cart[productId] = (cart[productId] || 0) + change;
+      if (cart[productId] <= 0) delete cart[productId];
+      renderProducts();
+    }
+
+    function updateCartSummary() {
+      const totalCount = Object.values(cart).reduce((sum, count) => sum + count, 0);
+      document.getElementById('totalItems').innerText = `${totalCount} Package(s)`;
+    }
+
+    function sendOrder() {
+      const selectedProductIds = Object.keys(cart);
+      if (selectedProductIds.length === 0) {
+        alert("Please select at least one item before ordering.");
+        return;
+      }
+
+      let orderText = `*NEW ${currentOrderType.toUpperCase()} ORDER FOR ALSIAAM*\n\n`;
+      selectedProductIds.forEach(id => {
+        const item = products.find(p => p.id == id);
+        const qty = cart[id];
+        const price = currentOrderType === 'retail' ? item.retailPrice : item.wholesalePrice;
+        orderText += `• *${item.name}*: ${qty} quantity (${price})\n`;
+      });
+
+      orderText += `\nPlease confirm availability and details.`;
+
+      const encodedText = encodeURIComponent(orderText);
+      window.open(`https://wa.me/${OWNER_PHONE}?text=${encodedText}`, '_blank');
+    }
+
+    // Initial render
+    renderProducts();
+  </script>
+</body>
+      </html>
+      
